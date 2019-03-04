@@ -44,5 +44,6 @@
         }
       ]
     ]
-  }
+  },
+  "proxy": "https://www.baidu.com"
 }

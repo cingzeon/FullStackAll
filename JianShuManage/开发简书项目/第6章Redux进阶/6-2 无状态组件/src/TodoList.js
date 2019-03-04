@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
-import store from './store';    // 引入仓库里的数据
-import { getInputChangeAction, getAddItemAction, getDeleteItemAction} from './store/actionCreate';  // 调用 actionCreate的方法
-import TodoListUI from './TodoListUI';  // UI组件
-import axios from 'axios';
+
+// 引入仓库里的数据
+import store from './store';
+
+// 调用 actionCreate的方法
+import { getInputChangeAction, getAddItemAction, getDeleteItemAction} from './store/actionCreate';
+
+// UI组件
+import TodoListUI from './TodoListUI';
 
 // 引入type 类型 的 常量
 // import { CHANGE_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM } from './store/actionTypes';
@@ -23,17 +28,18 @@ class TodoList extends Component{
 
     }
 
-
-    // 请求数据
-    componentDidMount(){
-        axios.get('/list.json').then(() => {
-
-        }).catch((res) => {
-
-        })
+    render(){        
+        return  (
+            <TodoListUI 
+                inputValue={this.state.inputValue}
+                list={this.state.list}
+                handleInputChange={this.handleInputChange}
+                handleBtnClick={this.handleBtnClick}
+                handleItemDelete={this.handleItemDelete}
+            />  
+        )
     }
 
-   
     // handleStoreChange 的方法 
     handleStoreChange = () => {
         console.log('store changed');
@@ -87,18 +93,6 @@ class TodoList extends Component{
         const action = getDeleteItemAction(index)
         store.dispatch(action);
         console.log(action);
-    }
-
-    render(){        
-        return  (
-            <TodoListUI 
-                inputValue={this.state.inputValue}
-                list={this.state.list}
-                handleInputChange={this.handleInputChange}
-                handleBtnClick={this.handleBtnClick}
-                handleItemDelete={this.handleItemDelete}
-            />  
-        )
     }
 }
 
