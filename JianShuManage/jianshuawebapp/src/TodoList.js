@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import store from './store';    // 引入仓库里的数据
 import { getInputChangeAction, getAddItemAction, getDeleteItemAction} from './store/actionCreate';  // 调用 actionCreate的方法
 import TodoListUI from './TodoListUI';  // UI组件
 import axios from 'axios';
+
+import BaiduMap from './pages/BaiduMap';
 
 // 引入type 类型 的 常量
 // import { CHANGE_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM } from './store/actionTypes';
@@ -91,13 +93,17 @@ class TodoList extends Component{
 
     render(){        
         return  (
-            <TodoListUI 
-                inputValue={this.state.inputValue}
-                list={this.state.list}
-                handleInputChange={this.handleInputChange}
-                handleBtnClick={this.handleBtnClick}
-                handleItemDelete={this.handleItemDelete}
-            />  
+            <Fragment>
+                    <TodoListUI 
+                        inputValue={this.state.inputValue}
+                        list={this.state.list}
+                        handleInputChange={this.handleInputChange}
+                        handleBtnClick={this.handleBtnClick}
+                        handleItemDelete={this.handleItemDelete}
+                    />  
+                    <BaiduMap />
+            </Fragment>
+            
         )
     }
 }
