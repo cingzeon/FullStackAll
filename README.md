@@ -7,4 +7,8 @@ GitLab项目代码管理:https://gitlab.com/loungcingzeon/gitlabtest
 
 企业级的 UI 设计语言和 React 实现 Ant Design:https://github.com/ant-design/ant-design/releases/tag/3.15.0
 GitHub:https://github.com/ant-design
+
+
+
+Vue后台框架UI：https://github.com/PanJiaChen/vue-element-admin/
 ```
